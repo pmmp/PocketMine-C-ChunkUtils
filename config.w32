@@ -1,0 +1,6 @@
+ARG_ENABLE("pocketmine-chunkutils", "enable PocketMine-C ChunkUtils", "no");
+
+if (PHP_POCKETMINE_CHUNKUTILS != "no") {
+	EXTENSION("pocketmine_chunkutils", "pocketmine_chunkutils.c", PHP_POCKETMINE_CHUNKUTILS_SHARED, "/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1");
+}
+
