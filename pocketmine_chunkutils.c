@@ -88,15 +88,20 @@ PHP_METHOD(ChunkUtils, reorderByteArray) {
 		Re-orders a 2048-byte nibble array (YZX -> XZY and vice versa) */
 PHP_METHOD(ChunkUtils, reorderNibbleArray) {
 	unsigned char *nibble_array;
-	size_t len;
-	unsigned char common_value = '\0';
+	size_t len, c_len;
+	unsigned char *common_value = NULL;
 
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s|z",
-		&nibble_array, &len, &common_value) != SUCCESS) {
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s|s!",
+		&nibble_array, &len, &common_value, &c_len) != SUCCESS) {
 		return;
 	}
 
-	unsigned char result[2048] = { common_value };
+	if(common_value == NULL){
+		common_value = malloc(1);
+		*common_value = '\0';
+	}
+
+	unsigned char result[2048] = { *common_value };
 
 	unsigned char x, y, z;
 	unsigned short i = 0;
