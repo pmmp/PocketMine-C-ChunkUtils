@@ -1,4 +1,5 @@
 # PocketMine-C ChunkUtils extension
+[![Travis CI build status](https://travis-ci.org/dktapps/PocketMine-C-ChunkUtils.svg?branch=master)](https://travis-ci.org/dktapps/PocketMine-C-ChunkUtils)
 
 This extension provides a C implementation of the [ChunkUtils class](https://github.com/pmmp/PocketMine-MP/blob/master/src/pocketmine/level/format/io/ChunkUtils.php) in PocketMine-MP. 
 It is intended as a drop-in performance enhancement if the user is using Anvil-formatted worlds (Minecraft PC worlds).
