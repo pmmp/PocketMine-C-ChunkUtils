@@ -33,12 +33,12 @@ zend_class_entry *chunkutils_ce;
 
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_reorder_byte_array, 0, 0, 1)
-	ZEND_ARG_INFO(0, byte_array)
+	ZEND_ARG_TYPE_INFO(0, byte_array, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_reorder_nibble_array, 0, 0, 1)
-	ZEND_ARG_INFO(0, nibble_array)
-	ZEND_ARG_INFO(0, common_value)
+	ZEND_ARG_TYPE_INFO(0, nibble_array, IS_STRING, 0)
+	ZEND_ARG_TYPE_INFO(0, common_value, IS_STRING, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_INFO_EX(arginfo_convert_biome_colors, 0, 0, 1)
