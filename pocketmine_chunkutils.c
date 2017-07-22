@@ -96,12 +96,7 @@ PHP_METHOD(ChunkUtils, reorderNibbleArray) {
 		return;
 	}
 
-	if(common_value == NULL){
-		common_value = malloc(1);
-		*common_value = '\0';
-	}
-
-	unsigned char result[2048] = { *common_value };
+	unsigned char result[2048] = { '\0' };
 
 	unsigned char x, y, z;
 	unsigned short i = 0;
