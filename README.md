@@ -16,7 +16,7 @@ __Requirements__
 To compile, you'll need to add the source to your ext source folder in your PHP source and compile PHP with the `--enable-pocketmine-chunkutils` option.
 No core changes are needed to PocketMine-MP, simply enable the extension and run the server. With Anvil worlds, you should see a vast performance improvement.
 
-__Windows__
+#### Windows
 
 Because compiling PHP on Windows isn't most people's bag, you can obtain a DLL for this extension from [AppVeyor](https://ci.appveyor.com/project/dktapps/pocketmine-c-chunkutils). Drop the DLL into the extensions directory for your PHP installation and add `extension=php_pocketmine_chunkutils.dll` to your php.ini.
 
