@@ -14,8 +14,7 @@ install:
 - cmd: cinst wget
 build_script:
 - cmd: >-
-
-  C:\projects\pocketmine_chunkutils\appveyor\build.bat
+    "C:\projects\pocketmine_chunkutils\appveyor\build.bat"
 
 test_script:
 - cmd: C:\projects\pocketmine_chunkutils\bin\php.exe -doutput_buffering=0 run-tests.php ext\pocketmine_chunkutils -p C:\projects\pocketmine_chunkutils\bin\php.exe -q --show-diff
