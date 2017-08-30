@@ -1,7 +1,7 @@
 if "%VC_VER%" == "vc14" (
-	"C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\vcvars64.bat"
+	call "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\vcvars64.bat"
 ) else if "%VC_VER%" == "vc15" (
-	"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %ARCH%
+	call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat" %ARCH%
 ) else (
 	echo "Unknown Visual Studio version, aborting"
 	exit 1
@@ -13,7 +13,7 @@ wget https://github.com/OSTC/php-sdk-binary-tools/archive/%PHP_SDK_BINARY_TOOLS_
 
 move C:\projects\php-sdk-binary-tools-%PHP_SDK_BINARY_TOOLS_VER% C:\projects\php-sdk
 
-C:\projects\php-sdk\bin\phpsdk_setvars.bat
+call C:\projects\php-sdk\bin\phpsdk_setvars.bat
 
 git clone https://github.com/php/php-src C:\projects\php-src -b PHP-%PHP_VER% --depth=1
 
@@ -21,13 +21,13 @@ mkdir C:\projects\php-src\ext\pocketmine_chunkutils
 
 xcopy C:\projects\pocketmine_chunkutils C:\projects\php-src\ext\pocketmine_chunkutils /s /e /y /q
 
-phpsdk_deps -u -t %VC_VER% -b %PHP_VER% -a %ARCH% -f -d C:\projects\php-src\deps
+call phpsdk_deps -u -t %VC_VER% -b %PHP_VER% -a %ARCH% -f -d C:\projects\php-src\deps
 
 cd C:\projects\php-src
 
-buildconf.bat
+call buildconf.bat
 
-configure.bat --disable-all --enable-cli --enable-zts --enable-pocketmine-chunkutils=shared --with-config-file-scan-dir=C:\projects\pocketmine_chunkutils\bin\modules.d --with-prefix=C:\projects\pocketmine_chunkutils\bin --with-php-build=deps --enable-debug-pack
+call configure.bat --disable-all --enable-cli --enable-zts --enable-pocketmine-chunkutils=shared --with-config-file-scan-dir=C:\projects\pocketmine_chunkutils\bin\modules.d --with-prefix=C:\projects\pocketmine_chunkutils\bin --with-php-build=deps --enable-debug-pack
 
 nmake
 
