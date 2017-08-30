@@ -1,18 +1,21 @@
+image: Visual Studio 2017
 version: '{branch}.{build}'
 clone_folder: c:\projects\pocketmine_chunkutils
 
 environment:
-  PHP_SDK_BINARY_TOOLS_VER: php-sdk-2.0.8
+  PHP_SDK_BINARY_TOOLS_VER: php-sdk-2.0.10
   ARCH: x64
 
   matrix:
     - PHP_VER: 7.0
       VC_VER: vc14
+    - PHP_VER: 7.2
+      VC_VER: vc15
 install:
 - cmd: cinst wget
 build_script:
 - cmd: >-
-    "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\amd64\vcvars64.bat"
+    C:\projects\pocketmine_chunkutils\appveyor\init_vs.bat
 
     wget https://github.com/OSTC/php-sdk-binary-tools/archive/%PHP_SDK_BINARY_TOOLS_VER%.zip --no-check-certificate -q -O php-sdk-binary-tools-%PHP_SDK_BINARY_TOOLS_VER%.zip
 
@@ -28,9 +31,7 @@ build_script:
 
     xcopy C:\projects\pocketmine_chunkutils C:\projects\php-src\ext\pocketmine_chunkutils /s /e /y /q
 
-    wget http://windows.php.net/downloads/php-sdk/deps-%PHP_VER%-%VC_VER%-%ARCH%.7z -q
-
-    7z x -y deps-%PHP_VER%-%VC_VER%-%ARCH%.7z -oC:\projects\php-src
+    phpsdk_deps -u -t %VC_VER% -b %PHP_VER% -a %ARCH% -f -d C:\projects\php-src\deps
 
     cd C:\projects\php-src
 
