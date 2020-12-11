@@ -80,7 +80,7 @@ PHP_METHOD(ChunkUtils, reorderByteArray) {
 		}
 	}
 
-	RETURN_STRINGL(result, 4096)
+	RETURN_STRINGL(result, 4096);
 } /* }}} */
 
 
@@ -119,7 +119,7 @@ PHP_METHOD(ChunkUtils, reorderNibbleArray) {
 		i += 128;
 	}
 
-	RETURN_STRINGL(result, 2048)
+	RETURN_STRINGL(result, 2048);
 } /* }}} */
 
 
