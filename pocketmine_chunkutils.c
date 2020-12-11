@@ -59,7 +59,7 @@ PHP_METHOD(ChunkUtils, reorderByteArray) {
 	unsigned char *byte_array;
 	size_t len;
 
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s|z",
+	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|z",
 		&byte_array, &len) != SUCCESS) {
 		return;
 	}
@@ -91,7 +91,7 @@ PHP_METHOD(ChunkUtils, reorderNibbleArray) {
 	size_t len, c_len;
 	unsigned char *common_value = NULL;
 
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s|s!",
+	if (zend_parse_parameters(ZEND_NUM_ARGS(), "s|s!",
 		&nibble_array, &len, &common_value, &c_len) != SUCCESS) {
 		return;
 	}
@@ -129,7 +129,7 @@ PHP_METHOD(ChunkUtils, convertBiomeColors) {
 
 	zval *old_colors_zv = NULL;
 
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "a", &old_colors_zv) != SUCCESS) {
+	if (zend_parse_parameters(ZEND_NUM_ARGS(), "a", &old_colors_zv) != SUCCESS) {
 		return;
 	}
 
